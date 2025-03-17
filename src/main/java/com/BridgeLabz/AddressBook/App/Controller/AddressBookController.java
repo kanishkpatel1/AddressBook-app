@@ -2,6 +2,7 @@ package com.BridgeLabz.AddressBook.App.Controller;
 
 import com.BridgeLabz.AddressBook.App.DTO.AddressBookDTO;
 import com.BridgeLabz.AddressBook.App.Entity.AddressBook;
+import com.BridgeLabz.AddressBook.App.Interfaces.IAddressBookService;
 import com.BridgeLabz.AddressBook.App.Service.AddressBookService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -16,11 +17,11 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/addressbook")
-@Slf4j  // Lombok annotation for logging
+@Slf4j
 public class AddressBookController {
 
     @Autowired
-    private AddressBookService addressBookService;
+    private IAddressBookService addressBookService;
 
     @GetMapping
     public ResponseEntity<List<AddressBook>> getAllContacts() {
